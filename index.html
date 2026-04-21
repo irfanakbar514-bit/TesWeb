@@ -736,45 +736,59 @@
             if (now - lastTouchEnd <= 300) event.preventDefault();
             lastTouchEnd = now;
         }, false);
+        
+        /* --- 4. LOGIKA LOADER & BUKA UNDANGAN (FIXED) --- */
+const btnOpen = document.getElementById('btnOpen');
+const loader = document.getElementById('loader');
+const cover = document.getElementById('cover');
+const mainContent = document.getElementById('main-content');
+const bgm = document.getElementById('bgm');
+const musicBtn = document.getElementById('musicBtn');
+const musicIcon = musicBtn.querySelector('i');
 
-                                /* --- 4. LOGIKA LOADER & BUKA UNDANGAN --- */
-        const btnOpen = document.getElementById('btnOpen');
-        const loader = document.getElementById('loader');
-        const cover = document.getElementById('cover');
-        const mainContent = document.getElementById('main-content');
-        const bgm = document.getElementById('bgm');
-        const musicBtn = document.getElementById('musicBtn');
+let isPlaying = false;
 
-        window.addEventListener('load', function() {
-            setTimeout(() => {
-                loader.style.opacity = '0';
-                setTimeout(() => { loader.style.display = 'none'; }, 800);
-            }, 2500); 
-        });
+// Fungsi untuk Play Musik
+function playAudio() {
+    bgm.play().then(() => {
+        isPlaying = true;
+        musicIcon.classList.add('fa-spin');
+    }).catch(e => console.log("Playback diblokir:", e));
+}
 
-        // HAPUS SEMUA btnOpen LAMA, PAKAI YANG INI SAJA:
-        btnOpen.addEventListener('click', function() {
-            // 1. Putar Musik
-            bgm.play().catch(e => console.log("Musik dipending browser"));
-            
-            // 2. Ubah icon tombol kaset jadi muter
-            musicBtn.innerHTML = '<i class="fas fa-compact-disc fa-spin"></i>';
-            
-            // 3. Efek buka cover
-            cover.style.transform = 'translateY(-100%)';
-            mainContent.classList.add('active');
-            document.body.classList.remove('no-scroll');
-            
-            setTimeout(() => {
-                AOS.init({ duration: 1200, once: true });
-                window.scrollTo(0, 0);
-            }, 600);
-        });
+// Fungsi untuk Pause Musik
+function pauseAudio() {
+    bgm.pause();
+    isPlaying = false;
+    musicIcon.classList.remove('fa-spin');
+}
 
+// Event Buka Undangan
+btnOpen.addEventListener('click', function() {
+    // Jalankan Musik
+    playAudio();
+    
+    // Efek Transisi Cover
+    cover.style.transform = 'translateY(-100%)';
+    mainContent.classList.add('active');
+    document.body.classList.remove('no-scroll');
+    
+    setTimeout(() => {
+        AOS.init({ duration: 1200, once: true });
+        window.scrollTo(0, 0);
+    }, 600);
+});
 
+// Event Tombol Musik (Toggle Play/Pause)
+musicBtn.addEventListener('click', function() {
+    if (isPlaying) {
+        pauseAudio();
+    } else {
+        playAudio();
+    }
+});
 
-
-        /* --- 6. LOGIKA COUNTDOWN TIMER --- */
+         /* --- 6. LOGIKA COUNTDOWN TIMER --- */
         const timer = setInterval(function() {
             const now = new Date().getTime();
             const distance = weddingDate - now;
