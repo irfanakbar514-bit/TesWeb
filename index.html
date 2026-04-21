@@ -630,43 +630,6 @@
                         </button>
                     </form>
                 </div>
-
-                <div class="guestbook-container" style="margin-top: 80px; text-align: left;">
-                    <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 35px;">
-                        <i class="fas fa-comments text-gold" style="font-size: 2rem;"></i>
-                        <h4 style="font-weight: 800; letter-spacing: 2px; color: var(--gold-light);">UCAPAN DUNSANAK</h4>
-                    </div>
-
-                    <div id="comment-list" style="max-height: 500px; overflow-y: auto; padding-right: 10px;">
-                        <div class="comment-card" style="background: rgba(255,255,255,0.03); padding: 25px; border-radius: 20px; border-left: 5px solid var(--gold); margin-bottom: 20px;" data-aos="fade-up">
-                            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px;">
-                                <strong style="color: var(--gold); font-size: 1rem;">H. Mansyur Syah</strong>
-                                <span style="font-size: 0.65rem; padding: 4px 10px; background: rgba(0,255,0,0.1); color: #00ff00; border-radius: 20px; border: 1px solid #00ff00;">Hadir</span>
-                            </div>
-                            <p style="font-size: 0.85rem; line-height: 1.6; color: #ccc;">"Salamat untuak Irfan & Via. Semoga manjadi keluarga nan Sakinah, Mawaddah, dan Warahmah. Langgang sampai maut mamisahkan, Amin Ya Rabbal Alamin."</p>
-                            <small style="display: block; margin-top: 15px; color: #555; font-size: 0.7rem;"><i class="far fa-clock"></i> 2 Jam yang lalu</small>
-                        </div>
-
-                        <div class="comment-card" style="background: rgba(255,255,255,0.03); padding: 25px; border-radius: 20px; border-left: 5px solid var(--gold); margin-bottom: 20px;" data-aos="fade-up">
-                            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px;">
-                                <strong style="color: var(--gold); font-size: 1rem;">Dinda Safitri</strong>
-                                <span style="font-size: 0.65rem; padding: 4px 10px; background: rgba(212,175,55,0.1); color: var(--gold); border-radius: 20px; border: 1px solid var(--gold);">Ragu-ragu</span>
-                            </div>
-                            <p style="font-size: 0.85rem; line-height: 1.6; color: #ccc;">"Happy Wedding Via sayang! Masya Allah akhirnya hari ini tiba juga. Doa terbaik untuk kalian berdua, semoga dilancarkan aleknya ya!"</p>
-                            <small style="display: block; margin-top: 15px; color: #555; font-size: 0.7rem;"><i class="far fa-clock"></i> 5 Jam yang lalu</small>
-                        </div>
-                        
-                        <div class="comment-card" style="background: rgba(255,255,255,0.03); padding: 25px; border-radius: 20px; border-left: 5px solid var(--gold); margin-bottom: 20px;" data-aos="fade-up">
-                            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px;">
-                                <strong style="color: var(--gold); font-size: 1rem;">Roni Patriot CCTV</strong>
-                                <span style="font-size: 0.65rem; padding: 4px 10px; background: rgba(0,255,0,0.1); color: #00ff00; border-radius: 20px; border: 1px solid #00ff00;">Hadir</span>
-                            </div>
-                            <p style="font-size: 0.85rem; line-height: 1.6; color: #ccc;">"Barakallahulakuma... Selamat Irfan. Semoga lancar sampai hari H. Doa kami menyertai dari Payakumbuh!"</p>
-                            <small style="display: block; margin-top: 15px; color: #555; font-size: 0.7rem;"><i class="far fa-clock"></i> 8 Jam yang lalu</small>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </section>
         <section id="closing" style="background: linear-gradient(rgba(0,0,0,0.9), rgba(0,0,0,0.9)), url('mempelai.webp') center/cover fixed; padding: 150px 0;">
             <div class="container">
@@ -839,18 +802,31 @@
         }
         createParticles();
 
-        /* --- 9. RSVP HANDLER --- */
-        $('#weddingRsvp').on('submit', function(e) {
-            e.preventDefault();
-            const submitBtn = $(this).find('button');
-            submitBtn.html('<i class="fas fa-spinner fa-spin"></i> MENGIRIM...').attr('disabled', true);
-            
-            setTimeout(() => {
-                alert("Terima kasih! Konfirmasi kehadiran Anda telah tersimpan.");
-                submitBtn.html('<i class="fas fa-paper-plane"></i> KIRIM DOA RESTU').attr('disabled', false);
-                this.reset();
-            }, 2000);
-        });
+        /* --- 9. RSVP HANDLER (LANGSUNG KE WA) --- */
+$('#weddingRsvp').on('submit', function(e) {
+    e.preventDefault();
+    
+    // Ambil data dari form
+    const nama = $('#rsvp_name').val();
+    const status = $('#rsvp_status').val();
+    const jumlah = $('#rsvp_guest').val() || "1";
+    const pesan = $('#rsvp_message').val();
+    
+    // Ganti nomor di bawah ini dengan nomor WA kamu (awali dengan 62)
+    const noWA = "6282278199948"; 
+
+    // Susun format pesan WA
+    const teksWA = `Halo Irfan & Via,%0A%0ASaya ingin mengonfirmasi kehadiran di acara pernikahan kalian.%0A%0A*Nama:* ${nama}%0A*Status Kehadiran:* ${status}%0A*Jumlah Orang:* ${jumlah}%0A*Ucapan/Doa:* ${pesan}`;
+
+    // Arahkan ke link WhatsApp
+    const urlWA = `https://api.whatsapp.com/send?phone=${noWA}&text=${teksWA}`;
+    
+    // Buka tab baru
+    window.open(urlWA, '_blank');
+    
+    // Reset form setelah kirim
+    this.reset();
+});      
     </script>
 </body>
 </html>
