@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>Undangan Pernikahan Irfan & Via - Alek Gadang Minangkabau</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Montserrat:wght@300;400;600;700;800&family=Tiro+Gurmukhi:italic@0;1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="no-scroll">
+
+    <div class="fixed-deco">
+        <div class="pucuk-rebung-float float-1 pulse-inf"></div>
+        <div class="pucuk-rebung-float float-2 pulse-inf-delay"></div>
+        <div class="ukiran-circle rotate-inf"></div>
+        <div class="ukiran-circle-inner rotate-inf-rev"></div>
+    </div>
+
+    <div id="loader">
+        <div class="loader-wrapper">
+            <div class="rumah-gadang-icon">
+                <div class="atap-gonjong"></div>
+            </div>
+            <div class="loading-bar">
+                <div class="progress"></div>
+            </div>
+            <p>Sabalun nio dibukak, kito siapkan baralek...</p>
+        </div>
+    </div>
+
+    <section class="cover-section" id="cover">
+        <div class="overlay-minang"></div>
+        <div class="marawa-banner animate__animated animate__fadeInDown">
+            <div class="m-black"></div>
+            <div class="m-red"></div>
+            <div class="m-yellow"></div>
+        </div>
+
+        <div class="cover-content text-center">
+            <p class="sub-title animate__animated animate__fadeIn">UNDANGAN ALEK PERNIKAHAN</p>
+            
+            <div class="main-names">
+                <h1 class="font-cursive text-gold animate__animated animate__zoomIn">Irfan</h1>
+                <div class="deco-divider animate__animated animate__fadeIn">
+                    <span class="line"></span>
+                    <div class="ukiran-center">
+                        <img src="https://www.transparentpng.com/download/floral/gold-floral-transparent-image-20.png" alt="Ukiran">
+                    </div>
+                    <span class="line"></span>
+                </div>
+                <h1 class="font-cursive text-gold animate__animated animate__zoomIn">Via</h1>
+            </div>
+
+            <div class="guest-area animate__animated animate__fadeInUp animate__delay-1s">
+                <p>Kepada Bapak/Ibu/Saudara/i:</p>
+                <div class="guest-card">
+                    <h2 id="guestName">Tamu Undangan</h2>
+                </div>
+                <p class="request-text">Kami Mengundang Anda di Hari Bahagia Kami</p>
+                <button class="btn-open-undangan" id="btnOpen">
+                    <i class="fas fa-envelope-open-text"></i> Buka Undangan
+                </button>
+            </div>
+        </div>
+
+        <div class="marawa-bottom">
+            <div class="m-yellow"></div>
+            <div class="m-red"></div>
+            <div class="m-black"></div>
+        </div>
+    </section>
+
+    <main id="main-content" class="hidden">
+        
+        <div class="music-widget paused" id="musicBtn">
+            <div class="music-info">Sedang Memutar Saluang</div>
+            <div class="music-icon"><i class="fas fa-compact-disc"></i></div>
+            <audio id="weddingAudio" loop>
+                <source src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mpeg">
+            </audio>
+        </div>
+
+        <section class="hero-section">
+            <div class="container text-center">
+                <div class="bismillah-calligraphy" data-aos="fade-down">
+                    بِسْمِ اللَّهِ الرَّحمَنِ الرَّحِيمِ
+                </div>
+                
+                <div class="adat-quote-box" data-aos="fade-up">
+                    <p class="pasambahan">
+                        "Siriah galak pinang manari, <br>
+                        Sarikayo di dalam piriang. <br>
+                        Mukasuik hati nio babagi, <br>
+                        Manggaleh alek jo nan baniang."
+                    </p>
+                    <hr class="gold-line">
+                </div>
+
+                <p data-aos="fade-up">Assalamu'alaikum Warahmatullahi Wabarakatuh</p>
+                <p class="opening-para" data-aos="fade-up">
+                    Dengan memohon rahmat dan ridho Allah SWT, kami bermaksud mengundang Bapak/Ibu/Saudara/i untuk menghadiri acara Alek Gadang pernikahan kami:
+                </p>
+
+                <div class="countdown-wrapper" data-aos="zoom-in">
+                    <h3 class="countdown-title font-cursive text-gold">Menuju Alek Gadang</h3>
+                    <div id="countdown" class="countdown-grid">
+                        <div class="cd-box">
+                            <span id="days">00</span>
+                            <small>HARI</small>
+                        </div>
+                        <div class="cd-box">
+                            <span id="hours">00</span>
+                            <small>JAM</small>
+                        </div>
+                        <div class="cd-box">
+                            <span id="minutes">00</span>
+                            <small>MENIT</small>
+                        </div>
+                        <div class="cd-box">
+                            <span id="seconds">00</span>
+                            <small>DETIK</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+              <section class="mempelai-section" id="mempelai">
+            <div class="pucuk-rebung-bg"></div>
+            <div class="container text-center">
+                
+                <div class="section-ornament" data-aos="zoom-in">
+                    <img src="https://www.transparentpng.com/download/floral/floral-gold-design-element-png-13.png" alt="Ornamen Minang">
+                </div>
+
+                <h2 class="section-title font-cursive text-gold" data-aos="fade-up">Mempelai nan Babahagia</h2>
+                
+                <div class="mempelai-wrapper">
+                    <div class="mempelai-card" data-aos="fade-right">
+                        <div class="frame-premium">
+                            <div class="corner-decoration top-left"></div>
+                            <div class="corner-decoration top-right"></div>
+                            <div class="corner-decoration bottom-left"></div>
+                            <div class="corner-decoration bottom-right"></div>
+                            <div class="image-holder">
+                                <img src="https://images.unsplash.com/photo-1583939411023-14783179e581?q=80&w=400" alt="Marapulai Irfan">
+                            </div>
+                        </div>
+                        
+                        <div class="mempelai-detail">
+                            <h3 class="font-cursive text-gold">Irfan Syahputra, S.Kom</h3>
+                            <p class="suku-info">Suku: **Koto**</p>
+                            <div class="marawa-divider-small"></div>
+                            <p class="parents-detail">
+                                Putra bungsu dari: <br>
+                                <strong>Bapak H. Syamsuar</strong> <br>
+                                & <br>
+                                <strong>Ibu Hj. Rosmaidi</strong>
+                            </p>
+                            <p class="address-mempelai">Payakumbuh, Sumatera Barat</p>
+                            <div class="mempelai-social">
+                                <a href="#"><i class="fab fa-instagram"></i> @irfan_syah</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="wedding-knot" data-aos="zoom-in">
+                        <div class="knot-circle">
+                            <span class="font-cursive text-gold">&</span>
+                        </div>
+                        <div class="knot-line"></div>
+                    </div>
+
+                    <div class="mempelai-card" data-aos="fade-left">
+                        <div class="frame-premium">
+                            <div class="corner-decoration top-left"></div>
+                            <div class="corner-decoration top-right"></div>
+                            <div class="corner-decoration bottom-left"></div>
+                            <div class="corner-decoration bottom-right"></div>
+                            <div class="image-holder">
+                                <img src="https://images.unsplash.com/photo-1621112904887-419379ce6824?q=80&w=400" alt="Anak Daro Via">
+                            </div>
+                        </div>
+
+                        <div class="mempelai-detail">
+                            <h3 class="font-cursive text-gold">Via Adinda, S.E</h3>
+                            <p class="suku-info">Suku: **Piliang**</p>
+                            <div class="marawa-divider-small"></div>
+                            <p class="parents-detail">
+                                Putri sulung dari: <br>
+                                <strong>Bapak Drs. M. Yusuf</strong> <br>
+                                & <br>
+                                <strong>Ibu Marlinawati</strong>
+                            </p>
+                            <p class="address-mempelai">Padang, Sumatera Barat</p>
+                            <div class="mempelai-social">
+                                <a href="#"><i class="fab fa-instagram"></i> @via_adnd</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="event-section" id="event">
+            <div class="cloud-pattern-bg"></div>
+            <div class="container">
+                
+                <div class="section-header text-center" data-aos="fade-up">
+                    <div class="marawa-top-small">
+                        <span class="m-black"></span><span class="m-red"></span><span class="m-yellow"></span>
+                    </div>
+                    <h2 class="font-cursive text-gold">Waktu & Tempat</h2>
+                    <p class="adat-subtitle">Manyaurek alek, managak kan payuang</p>
+                </div>
+
+                <div class="event-box-wrapper">
+                    <div class="event-card-item" data-aos="flip-left">
+                        <div class="event-card-inner">
+                            <div class="icon-wrap pulse-inf">
+                                <i class="fas fa-mosque"></i>
+                            </div>
+                            <h3>Akad Nikah</h3>
+                            <div class="event-time">
+                                <div class="time-row">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>Sabtu, 15 Agustus 2026</span>
+                                </div>
+                                <div class="time-row">
+                                    <i class="far fa-clock"></i>
+                                    <span>08.00 WIB - Selesai</span>
+                                </div>
+                            </div>
+                            <div class="event-location">
+                                <strong>Masjid Raya Sumatera Barat</strong>
+                                <p>Jl. Khatib Sulaiman, Alai Parak Kopi, Padang Utara</p>
+                            </div>
+                            <div class="event-action">
+                                <a href="https://maps.google.com" target="_blank" class="btn-maps-minang">
+                                    <i class="fas fa-map-marked-alt"></i> Penunjuk Lokasi
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="event-card-item" data-aos="flip-right">
+                        <div class="event-card-inner highlight-gold">
+                            <div class="icon-wrap pulse-inf">
+                                <i class="fas fa-utensils"></i>
+                            </div>
+                            <h3>Baralek Gadang</h3>
+                            <div class="event-time">
+                                <div class="time-row">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>Sabtu, 15 Agustus 2026</span>
+                                </div>
+                                <div class="time-row">
+                                    <i class="far fa-clock"></i>
+                                    <span>11.00 WIB - 17.00 WIB</span>
+                                </div>
+                            </div>
+                            <div class="event-location">
+                                <strong>Gedung Pertemuan UPI Padang</strong>
+                                <p>Lubuk Begalung Nan XX, Kota Padang</p>
+                            </div>
+                            <div class="event-action">
+                                <a href="https://maps.google.com" target="_blank" class="btn-maps-minang">
+                                    <i class="fas fa-map-marked-alt"></i> Penunjuk Lokasi
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="map-frame-wrapper" data-aos="zoom-in">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.3102379374024!2d100.36015567584144!3d-0.9144419990767576!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2fd4b8df050f8373%3A0x6331a1964268e0d9!2sMasjid%20Raya%20Sumatera%20Barat!5e0!3m2!1sid!2sid!4v1713689400000!5m2!1sid!2sid" 
+                        width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy">
+                    </iframe>
+                </div>
+            </div>
+        </section>
+              <section class="gallery-section" id="gallery">
+            <div class="ornament-divider"></div>
+            <div class="container text-center">
+                <h2 class="font-cursive text-gold" data-aos="fade-up">Galeri Kenangan</h2>
+                <p class="section-desc" data-aos="fade-up">Momen indah nan taikek dalam bingkai abadi</p>
+                
+                <div class="gallery-grid-wrapper">
+                    <div class="gallery-column">
+                        <div class="gallery-item" data-aos="zoom-in">
+                            <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=400" alt="Prewedding 1">
+                        </div>
+                        <div class="gallery-item" data-aos="zoom-in">
+                            <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=400" alt="Prewedding 2">
+                        </div>
+                    </div>
+                    <div class="gallery-column">
+                        <div class="gallery-item" data-aos="zoom-in" data-aos-delay="100">
+                            <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?q=80&w=400" alt="Prewedding 3">
+                        </div>
+                        <div class="gallery-item" data-aos="zoom-in" data-aos-delay="100">
+                            <img src="https://images.unsplash.com/photo-1522673607200-164883ebee38?q=80&w=400" alt="Prewedding 4">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="video-container" data-aos="fade-up">
+                    <div class="video-frame">
+                        <i class="fab fa-youtube text-red"></i>
+                        <span>Putar Cinematic Teaser</span>
+                        </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="gift-section" id="gift">
+            <div class="minang-pattern-strip"></div>
+            <div class="container text-center">
+                <div class="pucuk-rebung-icon pulse-inf">
+                    <i class="fas fa-gift"></i>
+                </div>
+                <h2 class="font-cursive text-gold" data-aos="fade-up">Kado Digital</h2>
+                <p data-aos="fade-up">Doa restu Anda merupakan karunia yang sangat berarti bagi kami. Namun jika ingin memberikan tanda kasih, Bapak/Ibu dapat melalui:</p>
+
+                <div class="bank-list">
+                    <div class="bank-card" data-aos="flip-up">
+                        <div class="bank-inner">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/5/5c/Bank_Central_Asia.svg" alt="BCA" class="bank-logo">
+                            <div class="rek-info">
+                                <span class="label">Nomor Rekening:</span>
+                                <h4 id="rekBca">1234567890</h4>
+                                <span class="owner">A.N IRFAN SYAHPUTRA</span>
+                            </div>
+                            <button class="btn-copy" onclick="copyRekening('rekBca', this)">
+                                <i class="far fa-copy"></i> Salin Nomor
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="bank-card" data-aos="flip-up" data-aos-delay="200">
+                        <div class="bank-inner">
+                            <img src="https://upload.wikimedia.org/wikipedia/id/f/fa/Bank_Mandiri_logo.svg" alt="Mandiri" class="bank-logo">
+                            <div class="rek-info">
+                                <span class="label">Nomor Rekening:</span>
+                                <h4 id="rekMandiri">0987654321</h4>
+                                <span class="owner">A.N VIA ADINDA</span>
+                            </div>
+                            <button class="btn-copy" onclick="copyRekening('rekMandiri', this)">
+                                <i class="far fa-copy"></i> Salin Nomor
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gift-address" data-aos="fade-up">
+                    <i class="fas fa-map-pin text-gold"></i>
+                    <h4>Alamat Pengiriman Kado:</h4>
+                    <p>Jl. Sudirman No. 12, Kelurahan Balai Jariang, Payakumbuh Timur, Kota Payakumbuh</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="rsvp-section" id="rsvp">
+            <div class="container">
+                <div class="rsvp-form-container" data-aos="fade-up">
+                    <h2 class="font-cursive text-gold text-center">Konfirmasi Kehadiran</h2>
+                    <p class="text-center">Mohon konfirmasi kehadiran Anda melalui formulir di bawah ini:</p>
+                    
+                    <form id="rsvpForm" class="wedding-form">
+                        <div class="input-group">
+                            <label><i class="fas fa-user"></i> Nama Lengkap</label>
+                            <input type="text" id="name" name="name" placeholder="Tulis nama Anda..." required>
+                        </div>
+
+                        <div class="input-group">
+                            <label><i class="fas fa-users"></i> Jumlah Tamu</label>
+                            <select id="total_guest" name="total_guest">
+                                <option value="1">1 Orang</option>
+                                <option value="2">2 Orang (Pasangan)</option>
+                                <option value="3">3 Orang</option>
+                                <option value="4">Keluarga</option>
+                            </select>
+                        </div>
+
+                        <div class="input-group">
+                            <label><i class="fas fa-check-circle"></i> Status Kehadiran</label>
+                            <div class="radio-wrap">
+                                <label class="radio-item">
+                                    <input type="radio" name="attendance" value="Hadir" checked>
+                                    <span class="checkmark"></span> Hadir
+                                </label>
+                                <label class="radio-item">
+                                    <input type="radio" name="attendance" value="Tidak Hadir">
+                                    <span class="checkmark"></span> Tidak Hadir
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <label><i class="fas fa-envelope-open-text"></i> Ucapan & Doa Restu</label>
+                            <textarea id="message" name="message" rows="4" placeholder="Berikan doa terbaik Anda..." required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn-submit-minang" id="submitRsvp">
+                            <i class="fas fa-paper-plane"></i> Kirim Ucapan
+                        </button>
+                    </form>
+
+                    <div class="message-feed-container">
+                        <div class="feed-header">
+                            <i class="fas fa-comments"></i> 
+                            <span id="countComment">5</span> Ucapan Doa
+                        </div>
+                        <div id="commentList" class="comment-list">
+                            <div class="comment-item">
+                                <strong>Haji Mansyur & Keluarga</strong>
+                                <p>Barakallahu lakum wa baraka alaikum. Semoga menjadi keluarga Sakinah Mawaddah Warahmah.</p>
+                                <small><i class="fas fa-clock"></i> 2 Jam yang lalu</small>
+                            </div>
+                            <div class="comment-item">
+                                <strong>Dinda & Teman Kantor</strong>
+                                <p>Selamat ya Via! Akhirnya hari H datang juga. Maaf belum bisa hadir langsung, doa kami menyertai.</p>
+                                <small><i class="fas fa-clock"></i> 5 Jam yang lalu</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="wedding-footer">
+            <div class="container text-center">
+                <div class="marawa-divider"></div>
+                <p class="closing-adat" data-aos="fade-up">
+                    "Kain buruk jangan dibuang, kain baru disimpan-simpan. <br>
+                    Janji lama janganlah hilang, janji baru kita teguhkan."
+                </p>
+                <p class="closing-text" data-aos="fade-up">Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu kepada kami.</p>
+                
+                <h3 class="font-cursive text-gold" data-aos="zoom-in">Irfan & Via</h3>
+                
+                <div class="footer-marawa">
+                    <div class="m-black"></div><div class="m-red"></div><div class="m-yellow"></div>
+                </div>
+                
+                <p class="copyright">© 2026 Patriot Digital Alek Nagari. All rights reserved.</p>
+            </div>
+        </footer>
+    </main>
+
+
