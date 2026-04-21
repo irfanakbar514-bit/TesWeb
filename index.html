@@ -111,6 +111,24 @@
     box-shadow: var(--shadow-gold); 
     overflow: hidden; 
 }
+        /* --- TAMBAHKAN INI UNTUK VIDEO --- */
+.video-container { 
+    position: relative; 
+    z-index: 10;        /* Lebih tinggi dari ornamen (6) */
+    margin-bottom: 50px; 
+    border: 2px solid var(--gold); 
+    border-radius: 30px; 
+    overflow: hidden; 
+    background: #000;    /* Background hitam solid biar ornamen gak nembus */
+}
+
+.video-container video {
+    width: 100%; 
+    display: block;
+    position: relative;
+    z-index: 11;         /* Video di depan background hitam */
+}
+
 
 
         /* CARD SYSTEM */
