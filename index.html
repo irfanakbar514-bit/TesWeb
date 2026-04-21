@@ -51,7 +51,7 @@
     background: url('ornamen.png') center/contain no-repeat; 
     
     /* 1. Harus lebih gede dari angka 5 (z-index section lo) */
-    z-index: 6; 
+    z-index: 3; 
 
     /* 2. Pakai 0.3 aja biar gak nabrak tulisan, tapi tetep nampak */
     opacity: 0.3; 
@@ -60,7 +60,7 @@
     mix-blend-mode: screen; 
 
     /* 4. Booster warna biar makin keluar di layar HP */
-    filter: brightness(2.5) contrast(1.2);
+    filter: brightness(1.5) contrast(1.0);
     
     pointer-events: none; 
     animation: rotateSlow 50s linear infinite; 
@@ -95,41 +95,18 @@
         .font-cursive { font-family: 'Pinyon Script', cursive; }
 
         /* FRAME MEMPELAI */
-          .frame-minang { 
-    position: relative; 
-    z-index: 10; /* Pastikan ini lebih tinggi dari z-index ornamen lo (6) */
-    width: 250px; 
-    height: 350px; 
-    margin: 0 auto 35px; 
-    padding: 12px; 
-    border: 3px solid var(--gold); 
-    border-radius: 125px 125px 0 0; 
-    
-    /* GANTI BAGIAN INI */
-    background: #0d0d0d; /* Pakai warna hitam solid (sama dengan warna background body) */
-    
-    box-shadow: var(--shadow-gold); 
-    overflow: hidden; 
-}
-        /* --- TAMBAHKAN INI UNTUK VIDEO --- */
-.video-container { 
-    position: relative; 
-    z-index: 10;        /* Lebih tinggi dari ornamen (6) */
-    margin-bottom: 50px; 
-    border: 2px solid var(--gold); 
-    border-radius: 30px; 
-    overflow: hidden; 
-    background: #000;    /* Background hitam solid biar ornamen gak nembus */
-}
-
-.video-container video {
+        .frame-minang { position: relative; width: 250px; height: 350px; margin: 0 auto 35px; padding: 12px; border: 3px solid var(--gold); border-radius: 125px 125px 0 0; background: rgba(212,175,55,0.05); box-shadow: var(--shadow-gold); overflow: hidden; }
+        .frame-minang img { 
     width: 100%; 
-    display: block;
-    position: relative;
-    z-index: 11;         /* Video di depan background hitam */
+    height: 100%; 
+    object-fit: cover; 
+    border-radius: 115px 115px 0 0; 
+    filter: contrast(110%); 
+    
+    /* Tambahan sakti biar di depan ornamen */
+    position: relative; 
+    z-index: 99; 
 }
-
-
 
         /* CARD SYSTEM */
         .event-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(212,175,55,0.2); border-radius: 35px; padding: 45px 25px; margin-bottom: 35px; transition: 0.4s; position: relative; }
