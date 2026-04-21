@@ -504,35 +504,29 @@
                 </div>
 
                 <div class="rsvp-form-container" data-aos="fade-up" style="background: rgba(255,255,255,0.02); padding: 40px 25px; border-radius: 35px; border: 1px solid rgba(212,175,55,0.2); box-shadow: var(--shadow-gold);">
-                    <form id="weddingRsvp" style="text-align: left;">
-                        <div style="margin-bottom: 25px;">
-                            <label style="display: block; font-size: 0.75rem; letter-spacing: 2px; color: var(--gold); margin-bottom: 12px; font-weight: 700;">NAMA LENGKAP</label>
-                            <input type="text" id="rsvp_name" placeholder="Masukkan nama Anda..." style="width: 100%; padding: 18px; border-radius: 15px; border: 1px solid rgba(212,175,55,0.3); background: rgba(0,0,0,0.4); color: #fff; font-family: 'Montserrat', sans-serif;" required>
-                        </div>
+                    <form id="weddingRsvp">
+    <div style="margin-bottom: 20px;">
+        <label style="display: block; color: var(--gold); font-size: 0.8rem; margin-bottom: 8px;">NAMA LENGKAP</label>
+        <input type="text" id="rsvp_name" placeholder="Nama Anda" style="width: 100%; padding: 15px; border-radius: 10px; border: 1px solid #444; background: #000; color: #fff;" required>
+    </div>
+    <div style="margin-bottom: 20px;">
+        <label style="display: block; color: var(--gold); font-size: 0.8rem; margin-bottom: 8px;">KEHADIRAN</label>
+        <select id="rsvp_status" style="width: 100%; padding: 15px; border-radius: 10px; border: 1px solid #444; background: #000; color: #fff;">
+            <option value="Hadir">Sato (Hadir)</option>
+            <option value="Tidak Hadir">Berhalangan</option>
+        </select>
+    </div>
+    <div style="margin-bottom: 20px;">
+        <label style="display: block; color: var(--gold); font-size: 0.8rem; margin-bottom: 8px;">JUMLAH TAMU</label>
+        <input type="number" id="rsvp_guest" value="1" style="width: 100%; padding: 15px; border-radius: 10px; border: 1px solid #444; background: #000; color: #fff;">
+    </div>
+    <div style="margin-bottom: 20px;">
+        <label style="display: block; color: var(--gold); font-size: 0.8rem; margin-bottom: 8px;">DOA / UCAPAN</label>
+        <textarea id="rsvp_message" rows="4" placeholder="Tulis doa Anda..." style="width: 100%; padding: 15px; border-radius: 10px; border: 1px solid #444; background: #000; color: #fff;" required></textarea>
+    </div>
+    <button type="submit" style="width: 100%; padding: 18px; background: var(--gold); border: none; border-radius: 10px; font-weight: 700; cursor: pointer;">KIRIM KONFIRMASI</button>
+</form>
 
-                        <div style="margin-bottom: 25px;">
-                            <label style="display: block; font-size: 0.75rem; letter-spacing: 2px; color: var(--gold); margin-bottom: 12px; font-weight: 700;">KONFIRMASI KEHADIRAN</label>
-                            <select id="rsvp_status" style="width: 100%; padding: 18px; border-radius: 15px; border: 1px solid rgba(212,175,55,0.3); background: #111; color: #fff; font-family: 'Montserrat', sans-serif;">
-                                <option value="Hadir">Sato (Hadir)</option>
-                                <option value="Tidak Hadir">Berhalangan (Tidak Hadir)</option>
-                                <option value="Ragu-ragu">Masih Ragu-ragu</option>
-                            </select>
-                        </div>
-
-                        <div style="margin-bottom: 25px;">
-                            <label style="display: block; font-size: 0.75rem; letter-spacing: 2px; color: var(--gold); margin-bottom: 12px; font-weight: 700;">JUMLAH ORANG</label>
-                            <input type="number" id="rsvp_guest" placeholder="1" min="1" max="10" style="width: 100%; padding: 18px; border-radius: 15px; border: 1px solid rgba(212,175,55,0.3); background: rgba(0,0,0,0.4); color: #fff;">
-                        </div>
-
-                        <div style="margin-bottom: 35px;">
-                            <label style="display: block; font-size: 0.75rem; letter-spacing: 2px; color: var(--gold); margin-bottom: 12px; font-weight: 700;">UCAPAN & DOA RESTU</label>
-                            <textarea id="rsvp_message" rows="5" placeholder="Tuliskan doa terbaik untuk Irfan & Afifah..." style="width: 100%; padding: 18px; border-radius: 15px; border: 1px solid rgba(212,175,55,0.3); background: rgba(0,0,0,0.4); color: #fff; font-family: 'Montserrat', sans-serif;" required></textarea>
-                        </div>
-
-                        <button type="submit" class="btn-open-undangan" style="width: 100%; padding: 20px; border-radius: 15px; font-size: 0.9rem;">
-                            <i class="fas fa-paper-plane" style="margin-right: 10px;"></i> KIRIM DOA RESTU
-                        </button>
-                    </form>
                 </div>
             </div>
         </section>
@@ -710,20 +704,27 @@
 
                 /* 8. RSVP WHATSAPP HANDLER (UTUH & OTOMATIS) */
         $('#weddingRsvp').on('submit', function(e) {
-            e.preventDefault();
-            
-            // Mengambil data otomatis dari form
-            const name = $('#rsvp_name').val();
-            const status = $('#rsvp_status').val();
-            const guest = $('#rsvp_guest').val() || "1";
-            const message = $('#rsvp_message').val();
-            
-            // Menyusun teks WhatsApp secara otomatis
-            const whatsappText = `Halo Irfan & Afifah,%0A%0A*KONFIRMASI KEHADIRAN*%0A----------------------------%0A*Nama:* ${name}%0A*Status:* ${status}%0A*Jumlah Tamu:* ${guest} Orang%0A*Pesan/Doa:* ${message}%0A----------------------------%0ATerima Kasih.`;
-            
-            // Membuka WhatsApp dengan teks yang sudah diisi otomatis
-            window.open(`https://api.whatsapp.com/send?phone=6282278199948&text=${whatsappText}`, '_blank');
-        });
+    e.preventDefault();
+    
+    // Tarik data dari ID yang sudah dipastiin cocok dengan HTML di atas
+    var namaTamu = document.getElementById('rsvp_name').value;
+    var statusHadir = document.getElementById('rsvp_status').value;
+    var jumlahTamu = document.getElementById('rsvp_guest').value;
+    var pesanTamu = document.getElementById('rsvp_message').value;
+    
+    // Susun pesan WA dengan variabel di atas
+    var teksWA = "Halo Irfan & Afifah,%0A%0A" +
+                 "*KONFIRMASI KEHADIRAN*%0A" +
+                 "Nama: " + namaTamu + "%0A" +
+                 "Status: " + statusHadir + "%0A" +
+                 "Jumlah: " + jumlahTamu + " Orang%0A" +
+                 "Pesan: " + pesanTamu;
+    
+    // Buka link WA
+    window.open("https://api.whatsapp.com/send?phone=6282278199948&text=" + teksWA, "_blank");
+});
+
+        
 
 
         /* 9. GOLD PARTICLES GENERATOR */
