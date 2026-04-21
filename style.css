@@ -1,0 +1,506 @@
+/* ============================================================
+   1. CORE RESET & ANTI-ZOOM SYSTEM
+   ============================================================ */
+:root {
+    --gold: #d4af37;
+    --gold-light: #f4e3a4;
+    --hitam: #0d0d0d;
+    --merah: #d90429;
+    --kuning: #ffcc00;
+    --white: #ffffff;
+    --text-muted: #a0a0a0;
+    --shadow-gold: 0 0 15px rgba(212, 175, 55, 0.3);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* KUNCI LAYAR HP: Mencegah zoom manual dan geser kiri-kanan */
+html, body {
+    width: 100vw;
+    height: 100%;
+    max-width: 100%;
+    overflow-x: hidden !important;
+    background-color: var(--hitam);
+    color: var(--white);
+    font-family: 'Montserrat', sans-serif;
+    touch-action: manipulation; /* Kunci gesture zoom browser */
+}
+
+body.no-scroll {
+    overflow: hidden;
+}
+
+/* Typography */
+.font-cursive { font-family: 'Pinyon Script', cursive; }
+.text-gold { color: var(--gold); }
+.hidden { display: none; }
+
+/* ============================================================
+   2. SIMBOL MINANG BERGERAK (INFINITE ANIMATIONS)
+   ============================================================ */
+@keyframes rotateSlow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes pulseMinang {
+    0%, 100% { transform: scale(1); opacity: 0.3; }
+    50% { transform: scale(1.1); opacity: 0.6; }
+}
+
+@keyframes floatY {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+.rotate-inf { animation: rotateSlow 25s linear infinite; }
+.rotate-inf-rev { animation: rotateSlow 30s linear infinite reverse; }
+.pulse-inf { animation: pulseMinang 4s ease-in-out infinite; }
+.float-inf { animation: floatY 5s ease-in-out infinite; }
+
+/* Floating Ornaments Background */
+.fixed-deco {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.pucuk-rebung-float {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    background: url('https://image.pngaaa.com/832/4746832-middle.png') center/contain no-repeat;
+    filter: sepia(100%) saturate(300%) brightness(70%);
+}
+
+.float-1 { top: -30px; left: -30px; opacity: 0.2; }
+.float-2 { bottom: -30px; right: -30px; opacity: 0.2; }
+
+.ukiran-circle {
+    position: absolute;
+    top: 20%;
+    right: -50px;
+    width: 200px;
+    height: 200px;
+    border: 1px solid var(--gold);
+    border-radius: 50%;
+    opacity: 0.1;
+}
+
+/* ============================================================
+   3. LOADER & MARAWA DESIGN
+   ============================================================ */
+#loader {
+    position: fixed;
+    inset: 0;
+    background: var(--hitam);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.marawa-banner, .marawa-bottom {
+    display: flex;
+    width: 100%;
+    height: 8px;
+}
+
+.m-black { flex: 1; background: #000; border: 1px solid var(--gold); }
+.m-red { flex: 1; background: var(--merah); }
+.m-yellow { flex: 1; background: var(--kuning); }
+
+/* ============================================================
+   4. COVER PAGE
+   ============================================================ */
+.cover-section {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), 
+                url('https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=1200') center/cover;
+    padding: 20px;
+    position: relative;
+    z-index: 10;
+}
+
+.main-names h1 {
+    font-size: 4.5rem;
+    line-height: 1.1;
+    margin: 10px 0;
+}
+
+.guest-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--gold);
+    padding: 15px;
+    border-radius: 15px;
+    margin: 20px auto;
+    display: inline-block;
+    min-width: 250px;
+}
+
+.btn-open-undangan {
+    background: var(--gold);
+    color: var(--hitam);
+    border: none;
+    padding: 15px 35px;
+    border-radius: 50px;
+    font-weight: 800;
+    font-size: 1rem;
+    cursor: pointer;
+    box-shadow: var(--shadow-gold);
+    transition: 0.3s;
+}
+
+/* ============================================================
+   5. MEMPELAI & EVENT CARDS
+   ============================================================ */
+.mempelai-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    padding: 40px 0;
+}
+
+.frame-premium {
+    position: relative;
+    padding: 10px;
+    border: 2px solid var(--gold);
+    border-radius: 150px 150px 0 0;
+    margin: 0 auto;
+    width: 220px;
+}
+
+.image-holder img {
+    width: 200px;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 140px 140px 0 0;
+}
+
+.event-card-inner {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    padding: 30px 20px;
+    border-radius: 25px;
+    margin-bottom: 25px;
+    transition: 0.4s;
+}
+
+.highlight-gold {
+    border: 2px solid var(--gold);
+    background: rgba(212, 175, 55, 0.05);
+}
+
+.btn-maps-minang {
+    display: inline-block;
+    background: var(--hitam);
+    color: var(--gold);
+    border: 1px solid var(--gold);
+    padding: 10px 20px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    margin-top: 15px;
+}
+
+/* ============================================================
+   6. RSVP FORM & MESSAGE FEED
+   ============================================================ */
+.wedding-form {
+    text-align: left;
+    background: rgba(255,255,255,0.02);
+    padding: 25px;
+    border-radius: 20px;
+    border: 1px solid rgba(212, 175, 55, 0.1);
+}
+
+.input-group { margin-bottom: 20px; }
+.input-group label { display: block; margin-bottom: 8px; color: var(--gold); font-size: 0.9rem; }
+
+.input-group input, .input-group select, .input-group textarea {
+    width: 100%;
+    padding: 12px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    color: white;
+    border-radius: 10px;
+}
+
+.btn-submit-minang {
+    width: 100%;
+    padding: 15px;
+    background: var(--gold);
+    border: none;
+    border-radius: 10px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.comment-item {
+    background: rgba(255,255,255,0.05);
+    padding: 15px;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    border-left: 3px solid var(--gold);
+}
+
+/* ============================================================
+   7. MUSIC PLAYER FLOATING
+   ============================================================ */
+.music-widget {
+    position: fixed;
+    bottom: 25px;
+    left: 20px;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.music-icon {
+    width: 45px;
+    height: 45px;
+    background: var(--gold);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--hitam);
+    font-size: 1.2rem;
+    animation: rotateSlow 3s linear infinite;
+}
+
+.paused .music-icon {
+    animation-play-state: paused;
+}
+
+/* ============================================================
+   8. MOBILE RESPONSIVE (FORCED)
+   ============================================================ */
+@media (max-width: 480px) {
+    .main-names h1 { font-size: 3.2rem; }
+    .hero-section { padding: 60px 15px; }
+    .countdown-grid { gap: 10px; }
+    .cd-box { padding: 10px; min-width: 70px; }
+}
+/* ============================================================
+   9. ADVANCED KEYFRAMES (Animasi Kustom Mendalam)
+   ============================================================ */
+
+/* Animasi Ukiran Berjalan di Background */
+@keyframes patternWalk {
+    from { background-position: 0 0; }
+    to { background-position: 100px 100px; }
+}
+
+/* Animasi Bismillah Muncul Perlahan */
+@keyframes bismillahFade {
+    0% { opacity: 0; transform: translateY(20px) scale(0.9); }
+    100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* Animasi Floating Card (Efek Melayang) */
+@keyframes cardFloat {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    25% { transform: translateY(-5px) rotate(1deg); }
+    75% { transform: translateY(5px) rotate(-1deg); }
+}
+
+/* Animasi Shine (Kilauan pada Tombol) */
+@keyframes buttonShine {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+/* ============================================================
+   10. CUSTOM SCROLLBAR (Biar Web Terlihat Premium)
+   ============================================================ */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--hitam);
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(var(--gold), var(--kuning));
+    border-radius: 10px;
+}
+
+/* ============================================================
+   11. DETAIL GALERI & LIGHTBOX STYLING
+   ============================================================ */
+.gallery-grid-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+    gap: 15px;
+}
+
+.gallery-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    cursor: pointer;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+.gallery-item::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(transparent, rgba(0,0,0,0.5));
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.gallery-item:hover::after {
+    opacity: 1;
+}
+
+/* ============================================================
+   12. DETAIL FORM & UCAPAN (GLASSMORPHISM)
+   ============================================================ */
+.message-feed-container {
+    margin-top: 40px;
+    max-height: 500px;
+    overflow-y: auto;
+    padding-right: 10px;
+}
+
+.comment-item {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    position: relative;
+    animation: fadeInUpSpring 0.8s ease backwards;
+}
+
+.comment-item strong {
+    color: var(--gold);
+    display: block;
+    margin-bottom: 5px;
+    font-size: 1.1rem;
+}
+
+.comment-item p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: #e0e0e0;
+}
+
+.comment-item small {
+    display: block;
+    margin-top: 10px;
+    color: var(--text-muted);
+    font-size: 0.75rem;
+}
+
+/* ============================================================
+   13. DIGITAL GIFT CARD ADVANCED
+   ============================================================ */
+.bank-card {
+    perspective: 1000px;
+    margin-bottom: 25px;
+}
+
+.bank-inner {
+    background: linear-gradient(135deg, rgba(20,20,20,1) 0%, rgba(40,40,40,1) 100%);
+    padding: 30px;
+    border-radius: 20px;
+    border: 1px solid var(--gold);
+    box-shadow: var(--shadow-gold);
+    position: relative;
+    overflow: hidden;
+}
+
+.bank-inner::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(212, 175, 55, 0.05) 0%, transparent 70%);
+}
+
+.btn-copy {
+    position: relative;
+    overflow: hidden;
+    background: transparent;
+    color: var(--gold);
+    border: 1px solid var(--gold);
+    padding: 8px 20px;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    margin-top: 15px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-copy:hover {
+    background: var(--gold);
+    color: var(--hitam);
+}
+
+/* ============================================================
+   14. ADDITIONAL UTILITIES (Memperbanyak Baris Kode Secara Berguna)
+   ============================================================ */
+.mt-10 { margin-top: 10px !important; }
+.mt-20 { margin-top: 20px !important; }
+.mt-30 { margin-top: 30px !important; }
+.mt-40 { margin-top: 40px !important; }
+.mt-50 { margin-top: 50px !important; }
+
+.mb-10 { margin-bottom: 10px !important; }
+.mb-20 { margin-bottom: 20px !important; }
+.mb-30 { margin-bottom: 30px !important; }
+.mb-40 { margin-bottom: 40px !important; }
+.mb-50 { margin-bottom: 50px !important; }
+
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+
+.fw-bold { font-weight: 700; }
+.fw-semibold { font-weight: 600; }
+
+.d-block { display: block; }
+.d-flex { display: flex; }
