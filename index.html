@@ -111,30 +111,37 @@
 }
 
 /* --- PAKSA SEMUA BAGIAN DARI UJUNG KE UJUNG --- */
-header, 
-.hero, 
-section#cover,
-section#event, 
-section#gallery, 
-section#closing,
-footer {
-    background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), 
-                url('mempelai.webp') center/cover fixed !important;
-    position: relative;
+/* 1. Pasang foto di seluruh layar paling belakang */
+body {
+    background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), 
+                url('mempelai.webp') center/cover fixed no-repeat !important;
 }
 
-/* Khusus bagian paling bawah banget biar gak ada sisa hitam polos */
-footer {
-    padding: 50px 0;
-    border-top: 1px solid rgba(212, 175, 55, 0.2);
+/* 2. Bikin semua section jadi transparan biar background body-nya kelihatan */
+section, main, #main-content {
+    background: transparent !important;
 }
 
-/* Supaya teks di header/cover tetep kontras */
-.hero-content h1, 
-.hero-content p,
-#closing p {
-    color: #fff !important;
-    text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+/* 3. JAGA JARAK: Supaya kartu konten (Agenda, RSVP, dll) tetep enak dibaca */
+.event-card, .bank-card, .rsvp-form-container, .guest-box, .pantun-adat-wrap {
+    background: rgba(15, 15, 15, 0.85) !important; /* Kasih warna item pekat dikit */
+    backdrop-filter: blur(10px); /* Efek kaca buram (Glassmorphism) */
+    border: 1px solid rgba(212, 175, 55, 0.3) !important;
+    border-radius: 25px;
+    padding: 30px;
+    margin-bottom: 20px;
+}
+
+/* 4. Fix buat bagian Cover agar tetep full screen */
+.cover-section {
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                url('mempelai.webp') center/cover no-repeat !important;
+}
+
+/* 5. Footer biar tetep kelihatan elegan */
+footer {
+    background: rgba(0, 0, 0, 0.8) !important;
+    backdrop-filter: blur(5px);
 }
 
 
