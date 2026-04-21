@@ -11,95 +11,104 @@
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
 
     <style>
+        /* ============================================================
+           MASTER CSS - PATRIOT DIGITAL ALEK NAGARI
+           ============================================================ */
+        :root {
+            --gold: #d4af37;
+            --gold-light: #f4e3a4;
+            --gold-dark: #aa8922;
+            --hitam: #0d0d0d;
+            --hitam-light: #1a1a1a;
+            --merah-minang: #d90429;
+            --kuning-minang: #ffcc00;
+            --white: #ffffff;
+            --shadow-gold: 0 0 15px rgba(212, 175, 55, 0.4);
+        }
+
+        /* RESET & ANTI-ZOOM HP */
+        * { margin: 0; padding: 0; box-sizing: border-box; outline: none; -webkit-tap-highlight-color: transparent; }
+        html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+        body { width: 100vw; overflow-x: hidden !important; background-color: var(--hitam); color: var(--white); font-family: 'Montserrat', sans-serif; line-height: 1.6; touch-action: manipulation; }
+        body.no-scroll { overflow: hidden !important; height: 100vh; }
+
+        /* SCROLLBAR PREMIUM */
+        ::-webkit-scrollbar { width: 5px; }
+        ::-webkit-scrollbar-track { background: var(--hitam); }
+        ::-webkit-scrollbar-thumb { background: linear-gradient(var(--gold), var(--merah-minang)); border-radius: 10px; }
+
+        /* BUTIRAN EMAS MELAYANG (PARTICLES) */
+        .gold-particles { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none; }
+        .particle { position: absolute; background: linear-gradient(var(--gold), var(--gold-light)); border-radius: 50%; opacity: 0.3; animation: fall linear infinite; }
+        @keyframes fall { 0% { transform: translateY(-10vh) rotate(0deg); opacity: 0; } 20% { opacity: 0.6; } 100% { transform: translateY(110vh) rotate(360deg); opacity: 0; } }
+
+        /* ORNAMEN FIXED */
+        @keyframes rotateSlow { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+        .fixed-ornament { position: fixed; width: 400px; height: 400px; background: url('https://image.pngaaa.com/832/4746832-middle.png') center/contain no-repeat; opacity: 0.05; z-index: 0; pointer-events: none; animation: rotateSlow 50s linear infinite; }
         
-       /* ============================================================
-   MASTER CSS REPAIR (SAFE MODE) - PATRIOT DIGITAL ALEK NAGARI
-   ============================================================ */
-:root {
-    --gold: #d4af37;
-    --gold-light: #f4e3a4;
-    --gold-dark: #aa8922;
-    --hitam: #0d0d0d;
-    --hitam-light: #1a1a1a;
-    --merah-minang: #d90429;
-    --kuning-minang: #ffcc00;
-    --white: #ffffff;
-    --shadow-gold: 0 0 15px rgba(212, 175, 55, 0.4);
+        .marawa-box { display: flex; width: 100%; height: 6px; position: relative; z-index: 10; }
+        .m-hitam { flex: 1; background: #000; border-top: 1px solid var(--gold); }
+        .m-merah { flex: 1; background: var(--merah-minang); }
+        .m-kuning { flex: 1; background: var(--kuning-minang); }
+
+        /* LOADER DESIGN */
+        #loader { position: fixed; inset: 0; background: var(--hitam); z-index: 9999; display: flex; flex-direction: column; justify-content: center; align-items: center; }
+        .loader-icon { width: 70px; height: 70px; border: 3px solid var(--gold); border-top: 3px solid transparent; border-radius: 50%; animation: rotateSlow 1s linear infinite; }
+        .loader-text { margin-top: 20px; letter-spacing: 5px; color: var(--gold); font-size: 0.7rem; text-transform: uppercase; }
+
+        /* COVER DESIGN */
+        .cover-section { height: 100vh; width: 100%; position: fixed; top: 0; left: 0; z-index: 1000; display: flex; flex-direction: column; justify-content: space-between; align-items: center; padding: 60px 20px; text-align: center; background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), url('mempelai.webp') center/cover no-repeat; transition: transform 1.3s cubic-bezier(0.7, 0, 0.3, 1); }
+        .hero-names { font-size: 4.5rem; line-height: 1; margin: 20px 0; text-shadow: 2px 5px 15px rgba(0,0,0,0.9); }
+        .guest-box { margin-top: 50px; padding: 25px; background: rgba(255,255,255,0.05); border: 1px solid rgba(212,175,55,0.3); border-radius: 25px; backdrop-filter: blur(15px); width: 100%; max-width: 350px; }
+        .btn-open-undangan { margin-top: 25px; background: var(--gold); color: var(--hitam); border: none; padding: 18px 45px; border-radius: 60px; font-weight: 800; letter-spacing: 2px; cursor: pointer; box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4); transition: 0.3s; }
+        .btn-open-undangan:hover { transform: scale(1.05); background: var(--gold-light); }
+
+        /* MAIN CONTENT & SECTIONING */
+        main { display: none; opacity: 0; transition: 1.5s ease; background: var(--hitam); }
+        main.active { display: block; opacity: 1; }
+        section { padding: 120px 25px; position: relative; z-index: 5; text-align: center; }
+        
+        .container { max-width: 500px; margin: 0 auto; }
+        .text-gold { color: var(--gold); }
+        .font-cursive { font-family: 'Pinyon Script', cursive; }
+
+        /* FRAME MEMPELAI */
+        .frame-minang { position: relative; width: 250px; height: 350px; margin: 0 auto 35px; padding: 12px; border: 3px solid var(--gold); border-radius: 125px 125px 0 0; background: rgba(212,175,55,0.05); box-shadow: var(--shadow-gold); }
+        .frame-minang img { width: 100%; height: 100%; object-fit: cover; border-radius: 112px 112px 0 0; filter: contrast(110%); }
+
+        /* CARD SYSTEM */
+        .event-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(212,175,55,0.2); border-radius: 35px; padding: 45px 25px; margin-bottom: 35px; transition: 0.4s; }
+        .event-card:hover { border-color: var(--gold); background: rgba(212,175,55,0.05); }
+        .bank-card { background: linear-gradient(145deg, #111, #000); border: 1px solid var(--gold); border-radius: 25px; padding: 35px; margin-bottom: 25px; position: relative; overflow: hidden; }
+
+        /* EXTRA DECORATIONS */
+        .corner-ornament { position: absolute; width: 100px; height: 100px; opacity: 0.1; pointer-events: none; }
+        .co-tl { top: 20px; left: 20px; }
+        .co-br { bottom: 20px; right: 20px; transform: rotate(180deg); }
+                /* ============================================================
+           BAGIAN 7 (FIX): MANIK-MANIK EMAS BERJATUHAN
+           ============================================================ */
+        /* GANTI PAKAI INI */
+.gold-particles { 
+    position: fixed; 
+    top: 0; left: 0; 
+    width: 100vw; height: 100vh; 
+    z-index: 999; 
+    pointer-events: none; 
 }
-
-/* RESET & ANTI-GOYANG (PASTI AMAN) */
-html, body {
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden; /* Anti-geser samping */
-    background-color: var(--hitam) !important; /* Warna dasar item pekat */
-    font-family: 'Montserrat', sans-serif;
-    color: var(--white);
-    line-height: 1.6;
+.particle { 
+    position: absolute; 
+    background: linear-gradient(135deg, #d4af37, #f4e3a4); 
+    border-radius: 50%; 
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.8);
+    opacity: 0; 
+    animation: fall linear infinite; 
 }
-
-/* Jaga-jaga buat iPhone */
-html {
-    overscroll-behavior-y: none;
+@keyframes fall { 
+    0% { transform: translateY(-10vh) rotate(0deg); opacity: 0; } 
+    20% { opacity: 0.8; } 
+    100% { transform: translateY(110vh) rotate(360deg); opacity: 0; } 
 }
-
-/* SEMUA SECTION ASLINYA HITAM POLOS */
-main, #main-content, section {
-    background: var(--hitam) !important;
-    width: 100%;
-    box-sizing: border-box;
-    position: relative;
-    overflow: hidden;
-}
-
-/* --- KUNCI JAWABAN: PASANG FOTO CUMA DI BAGIAN TERTENTU --- */
-
-/* 1. BAGIAN COUNTDOWN (MENGHITUNG HARI) */
-.section-countdown {
-    background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), 
-                url('mempelai.webp') center 20%/contain no-repeat !important;
-    background-attachment: scroll !important; /* Biar fotonya nempel di kotak ini */
-    padding: 120px 0;
-}
-
-/* 2. BAGIAN CLOSING (QS AR-RUM) */
-section#closing {
-    background: linear-gradient(rgba(0,0,0,0.9), rgba(0,0,0,0.9)), 
-                url('mempelai.webp') center 20%/contain no-repeat !important;
-    background-attachment: scroll !important; /* Sama, nempel di kotak ini */
-    padding: 150px 0;
-}
-
-/* --- JAGA LAYOUT TETAP RAPI & DIBACA JELAS --- */
-.event-card, .bank-card, .rsvp-form-container, .guest-box, .pantun-adat-wrap {
-    background: rgba(15, 15, 15, 0.9) !important;
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(212, 175, 55, 0.2) !important;
-    border-radius: 25px;
-    padding: 30px;
-    margin-bottom: 25px;
-}
-
-/* PERBAIKAN COVER (BAGIAN PALING ATAS) */
-.cover-section {
-    background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), 
-                url('mempelai.webp') center/cover no-repeat !important;
-}
-
-/* FOOTER */
-footer {
-    background: rgba(5, 5, 5, 1) !important;
-    position: relative;
-    z-index: 10;
-}
-
-/* REUSABLE UTILS */
-.container { max-width: 500px; margin: 0 auto; padding: 0 20px; }
-.font-cursive { font-family: 'Pinyon Script', cursive; }
-.text-gold { color: var(--gold); }
- 
-
 
 
     </style>
