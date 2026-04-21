@@ -753,14 +753,18 @@
         });
 
         // HAPUS SEMUA btnOpen LAMA, PAKAI YANG INI SAJA:
-        btnOpen.addEventListener('click', function() {
-            // 1. Putar Musik
-            bgm.play().catch(e => console.log("Musik dipending browser"));
+                btnOpen.addEventListener('click', function() {
+            // 1. Coba putar musik dulu
+            bgm.play().then(() => {
+                // Kalo musik BERHASIL jalan, baru kaset dimuter
+                musicBtn.innerHTML = '<i class="fas fa-compact-disc fa-spin"></i>';
+            }).catch(e => {
+                // Kalo musik di-block browser, kaset diem dulu biar gak bohong
+                musicBtn.innerHTML = '<i class="fas fa-compact-disc"></i>';
+                console.log("Musik tertahan browser");
+            });
             
-            // 2. Ubah icon tombol kaset jadi muter
-            musicBtn.innerHTML = '<i class="fas fa-compact-disc fa-spin"></i>';
-            
-            // 3. Efek buka cover
+            // 2. Efek buka cover tetep jalan
             cover.style.transform = 'translateY(-100%)';
             mainContent.classList.add('active');
             document.body.classList.remove('no-scroll');
@@ -773,14 +777,16 @@
 
 
 
+
                 /* --- 5. KONTROL AUDIO PLAYER (VERSI FIX) --- */
+        
         musicBtn.addEventListener('click', function() {
             if (bgm.paused) {
                 bgm.play();
                 this.innerHTML = '<i class="fas fa-compact-disc fa-spin"></i>';
             } else {
                 bgm.pause();
-                this.innerHTML = '<i class="fas fa-pause"></i>';
+                this.innerHTML = '<i class="fas fa-compact-disc"></i>'; // Kalo pause, piringan diem
             }
         });
 
