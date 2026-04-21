@@ -739,7 +739,7 @@
             lastTouchEnd = now;
         }, false);
 
-        /* --- 4. LOGIKA LOADER & BUKA UNDANGAN --- */
+                /* --- 4. LOGIKA LOADER & BUKA UNDANGAN --- */
         const btnOpen = document.getElementById('btnOpen');
         const loader = document.getElementById('loader');
         const cover = document.getElementById('cover');
@@ -754,14 +754,15 @@
             }, 2500); 
         });
 
-                btnOpen.addEventListener('click', function() {
+        // HAPUS SEMUA btnOpen LAMA, PAKAI YANG INI SAJA:
+        btnOpen.addEventListener('click', function() {
             // 1. Putar Musik
             bgm.play().catch(e => console.log("Musik dipending browser"));
             
-            // 2. Ubah icon tombol musik jadi muter
+            // 2. Ubah icon tombol kaset jadi muter
             musicBtn.innerHTML = '<i class="fas fa-compact-disc fa-spin"></i>';
             
-            // 3. Animasi Cover Naik
+            // 3. Efek buka cover
             cover.style.transform = 'translateY(-100%)';
             mainContent.classList.add('active');
             document.body.classList.remove('no-scroll');
@@ -771,6 +772,7 @@
                 window.scrollTo(0, 0);
             }, 600);
         });
+
 
 
                 /* --- 5. KONTROL AUDIO PLAYER (VERSI FIX) --- */
