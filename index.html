@@ -50,16 +50,18 @@
     height: 400px; 
     background: url('ornamen.png') center/contain no-repeat; 
     
-    /* NAIKKAN JADI 2 BIAR DI DEPAN BACKGROUND */
+    /* Z-INDEX HARUS DI ATAS BACKGROUND */
     z-index: 2; 
+
+    /* BIAR TERANG TAPI TETEP ELEGAN */
+    opacity: 0.4; 
+
+    /* TRIK RAHASIA BIAR WARNANYA NYALA DI LAYAR GELAP */
+    filter: brightness(3.0) contrast(1.5) drop-shadow(0 0 10px rgba(212, 175, 55, 0.5));
     
-    /* OPACITY 0.2 SUDAH CUKUP ELEGAN */
-    opacity: 0.2; 
-    
-    /* TRIK BIAR WARNA GOLD-NYA KELUAR */
-    filter: brightness(1.5) contrast(1.2); 
-    
+    /* BIAR GAK NUTUPIN TOMBOL PAS DIKLIK */
     pointer-events: none; 
+    
     animation: rotateSlow 50s linear infinite; 
 }
 
