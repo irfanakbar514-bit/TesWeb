@@ -110,6 +110,31 @@
     100% { transform: translateY(110vh) rotate(360deg); opacity: 0; } 
 }
 
+/* --- BIAR SEMUA BAGIAN (TERMASUK AR-RUM) ADA FOTO BACKGROUND --- */
+section#event, 
+section#gallery, 
+section#love-story, 
+section#gift, 
+section#rsvp,
+section#closing {
+    /* Background foto pengantin dengan lapisan gelap 90% */
+    background: linear-gradient(rgba(0,0,0,0.9), rgba(0,0,0,0.9)), url('mempelai.webp') center/cover fixed !important;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Khusus buat Ar-Rum biar teks kutipannya makin cakep */
+section#closing .closing-quote p {
+    color: var(--gold-light) !important;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+/* Biar kartu-kartu di Agenda Alek tetep kebaca jelas di atas foto */
+.event-card, .bank-card, .rsvp-form-container {
+    background: rgba(13, 13, 13, 0.7) !important;
+    backdrop-filter: blur(10px); /* Efek kaca buram biar mewah */
+    border: 1px solid rgba(212, 175, 55, 0.3) !important;
+}
 
     </style>
 </head>
