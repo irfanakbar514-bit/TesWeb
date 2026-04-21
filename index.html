@@ -726,8 +726,8 @@
             </div>
         </footer>
     </main>
-    <script src="https://unpkg.com/aos@next/dist/aos.js(https://unpkg.com/aos@next/dist/aos.js)"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js](https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js)"></script>
+           <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
     <script>
         /* --- 1. SETTING WAKTU ALEK GADANG --- */
@@ -762,7 +762,7 @@
             setTimeout(() => {
                 loader.style.opacity = '0';
                 setTimeout(() => { loader.style.display = 'none'; }, 800);
-            }, 2500); // Loader muncul 2.5 detik biar premium
+            }, 2500); 
         });
 
         btnOpen.addEventListener('click', function() {
@@ -800,10 +800,10 @@
             const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-            document.getElementById("days").innerText = days < 10 ? "0" + days : days;
-            document.getElementById("hours").innerText = hours < 10 ? "0" + hours : hours;
-            document.getElementById("minutes").innerText = minutes < 10 ? "0" + minutes : minutes;
-            document.getElementById("seconds").innerText = seconds < 10 ? "0" + seconds : seconds;
+            if(document.getElementById("days")) document.getElementById("days").innerText = days < 10 ? "0" + days : days;
+            if(document.getElementById("hours")) document.getElementById("hours").innerText = hours < 10 ? "0" + hours : hours;
+            if(document.getElementById("minutes")) document.getElementById("minutes").innerText = minutes < 10 ? "0" + minutes : minutes;
+            if(document.getElementById("seconds")) document.getElementById("seconds").innerText = seconds < 10 ? "0" + seconds : seconds;
 
             if (distance < 0) {
                 clearInterval(timer);
@@ -821,7 +821,7 @@
             });
         }
 
-        /* --- 8. GENERATOR BUTIRAN EMAS (BAGIAN 7) --- */
+        /* --- 8. GENERATOR BUTIRAN EMAS --- */
         function createParticles() {
             const container = document.getElementById('particleContainer');
             if(!container) return;
@@ -839,7 +839,7 @@
         }
         createParticles();
 
-        /* --- 9. RSVP HANDLER (SIMULASI) --- */
+        /* --- 9. RSVP HANDLER --- */
         $('#weddingRsvp').on('submit', function(e) {
             e.preventDefault();
             const submitBtn = $(this).find('button');
@@ -855,3 +855,4 @@
 </body>
 </html>
 
+    
