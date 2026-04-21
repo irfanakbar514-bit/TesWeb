@@ -708,18 +708,23 @@
             });
         }
 
-        /* 8. RSVP WHATSAPP HANDLER */
+                /* 8. RSVP WHATSAPP HANDLER (UTUH & OTOMATIS) */
         $('#weddingRsvp').on('submit', function(e) {
             e.preventDefault();
+            
+            // Mengambil data otomatis dari form
             const name = $('#rsvp_name').val();
             const status = $('#rsvp_status').val();
             const guest = $('#rsvp_guest').val() || "1";
             const message = $('#rsvp_message').val();
             
+            // Menyusun teks WhatsApp secara otomatis
             const whatsappText = `Halo Irfan & Afifah,%0A%0A*KONFIRMASI KEHADIRAN*%0A----------------------------%0A*Nama:* ${name}%0A*Status:* ${status}%0A*Jumlah Tamu:* ${guest} Orang%0A*Pesan/Doa:* ${message}%0A----------------------------%0ATerima Kasih.`;
             
+            // Membuka WhatsApp dengan teks yang sudah diisi otomatis
             window.open(`https://api.whatsapp.com/send?phone=6282278199948&text=${whatsappText}`, '_blank');
         });
+
 
         /* 9. GOLD PARTICLES GENERATOR */
         (function() {
