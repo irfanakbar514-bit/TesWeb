@@ -23,6 +23,34 @@ main {
     width: 100%;
     overflow-x: hidden; /* DOUBLE LOCK */
 }
+        .butterfly {
+    position: fixed;
+    font-size: 25px;
+    user-select: none;
+    pointer-events: none;
+    z-index: 9999;
+    filter: drop-shadow(0 0 5px gold);
+}
+.butterfly::before {
+    content: '🦋';
+    display: block;
+    animation: flap 0.2s infinite alternate;
+}
+@keyframes flap {
+    from { transform: scaleX(0.5); }
+    to { transform: scaleX(1); }
+}
+@keyframes butterflyBurst {
+    0% { transform: translate(-50%, -50%) scale(0); opacity: 1; }
+    100% { transform: translate(var(--x), var(--y)) scale(1.5); opacity: 0; }
+}
+@keyframes flyUp {
+    0% { transform: translateY(110vh) rotate(0deg); opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { transform: translateY(-20vh) translateX(50px) rotate(20deg); opacity: 0; }
+}
+
 
         /* ============================================================
            MASTER CSS - PATRIOT DIGITAL ALEK NAGARI
@@ -681,6 +709,7 @@ main {
         /* 4. OPEN INVITATION */
         btnOpen.addEventListener('click', function() {
             toggleAudio('play');
+            meledakKupu();
             cover.style.transform = 'translateY(-100%)';
             mainContent.classList.add('active');
             document.body.classList.remove('no-scroll');
@@ -789,6 +818,38 @@ main {
     // Langsung buka WhatsApp
     window.open(urlWA, '_blank');
 }
+        <script>
+function createButterfly(isBurst = false) {
+    const bf = document.createElement('div');
+    bf.className = 'butterfly';
+    if (isBurst) {
+        bf.style.left = '50vw';
+        bf.style.top = '50vh';
+        const x = (Math.random() - 0.5) * 1000 + 'px';
+        const y = (Math.random() - 0.5) * 1000 + 'px';
+        bf.style.setProperty('--x', x);
+        bf.style.setProperty('--y', y);
+        bf.style.animation = `butterflyBurst ${Math.random() * 2 + 1}s ease-out forwards`;
+    } else {
+        bf.style.left = Math.random() * 100 + "vw";
+        bf.style.bottom = "-50px";
+        bf.style.animation = `flyUp ${Math.random() * 5 + 5}s linear forwards`;
+    }
+    document.body.appendChild(bf);
+    setTimeout(() => { bf.remove(); }, 6000);
+}
+
+function meledakKupu() {
+    // Sekali ledak keluar 25 kupu-kupu
+    for(let i = 0; i < 25; i++) {
+        setTimeout(() => createButterfly(true), i * 30);
+    }
+    // Setelah itu, muncul tiap 3 detik biar awet indahnya
+    setTimeout(() => {
+        setInterval(() => createButterfly(false), 3000);
+    }, 2000);
+}
+
   
     </script>
 </body>
