@@ -95,8 +95,10 @@
         .font-cursive { font-family: 'Pinyon Script', cursive; }
 
         /* FRAME MEMPELAI */
-       .frame-minang { position: relative; width: 250px; height: 350px; margin: 0 auto 35px; padding: 12px; border: 3px solid var(--gold); border-radius: 125px 125px 0 0; background: rgba(0,0,0,0.8); box-shadow: var(--shadow-gold); }
-        .frame-minang img { width: 100%; height: 100%; object-fit: cover; border-radius: 112px 112px 0 0; filter: contrast(110%); }
+       .frame-minang { position: relative; width: 250px; height: 350px; margin: 0 auto 35px; padding: 12px; border: 3px solid var(--gold); border-radius: 125px 125px 0 0; background: rgba(0,0,0,0.8); box-shadow: var(--shadow-gold);z-index: 10;isolation: isolate; }
+        .frame-minang img { width: 100%; height: 100%; object-fit: cover; border-radius: 112px 112px 0 0; filter: contrast(110%); position: relative;
+    z-index: 11;
+    display: block; }
 
 
         /* CARD SYSTEM */
