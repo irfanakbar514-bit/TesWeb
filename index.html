@@ -818,40 +818,7 @@ main {
     // Langsung buka WhatsApp
     window.open(urlWA, '_blank');
 }
- </scrip>
-        <script>
-function createButterfly(isBurst = false) {
-    const bf = document.createElement('div');
-    bf.className = 'butterfly';
-    if (isBurst) {
-        bf.style.left = '50vw';
-        bf.style.top = '50vh';
-        const x = (Math.random() - 0.5) * 1000 + 'px';
-        const y = (Math.random() - 0.5) * 1000 + 'px';
-        bf.style.setProperty('--x', x);
-        bf.style.setProperty('--y', y);
-        bf.style.animation = `butterflyBurst ${Math.random() * 2 + 1}s ease-out forwards`;
-    } else {
-        bf.style.left = Math.random() * 100 + "vw";
-        bf.style.bottom = "-50px";
-        bf.style.animation = `flyUp ${Math.random() * 5 + 5}s linear forwards`;
-    }
-    document.body.appendChild(bf);
-    setTimeout(() => { bf.remove(); }, 6000);
-}
-
-function meledakKupu() {
-    // Sekali ledak keluar 25 kupu-kupu
-    for(let i = 0; i < 25; i++) {
-        setTimeout(() => createButterfly(true), i * 30);
-    }
-    // Setelah itu, muncul tiap 3 detik biar awet indahnya
-    setTimeout(() => {
-        setInterval(() => createButterfly(false), 3000);
-    }, 2000);
-}
-
-  
+ 
     </script>
 </body>
 </html>
