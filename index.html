@@ -50,20 +50,22 @@
     height: 400px; 
     background: url('ornamen.png') center/contain no-repeat; 
     
-    /* Z-INDEX HARUS DI ATAS BACKGROUND */
-    z-index: 2; 
+    /* 1. Harus lebih gede dari angka 5 (z-index section lo) */
+    z-index: 6; 
 
-    /* BIAR TERANG TAPI TETEP ELEGAN */
-    opacity: 0.4; 
+    /* 2. Pakai 0.3 aja biar gak nabrak tulisan, tapi tetep nampak */
+    opacity: 0.3; 
 
-    /* TRIK RAHASIA BIAR WARNANYA NYALA DI LAYAR GELAP */
-    filter: brightness(3.0) contrast(1.5) drop-shadow(0 0 10px rgba(212, 175, 55, 0.5));
+    /* 3. INI KUNCINYA: Biar nembus background hitam dan nyala emasnya */
+    mix-blend-mode: screen; 
+
+    /* 4. Booster warna biar makin keluar di layar HP */
+    filter: brightness(2.5) contrast(1.2);
     
-    /* BIAR GAK NUTUPIN TOMBOL PAS DIKLIK */
     pointer-events: none; 
-    
     animation: rotateSlow 50s linear infinite; 
 }
+
 
         
         .marawa-box { display: flex; width: 100%; height: 6px; position: relative; z-index: 10; }
