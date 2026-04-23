@@ -841,6 +841,8 @@ main {
 function createButterfly(isBurst = false) {
     const bf = document.createElement('div');
     bf.className = 'butterfly';
+    const randomSize = Math.floor(Math.random() * 20) + 15;
+    bf.style.fontSize = randomSize + 'px';
     if (isBurst) {
         bf.style.left = '50vw';
         bf.style.top = '50vh';
@@ -860,12 +862,12 @@ function createButterfly(isBurst = false) {
 
 function meledakKupu() {
     // Sekali ledak keluar 25 kupu-kupu
-    for(let i = 0; i < 25; i++) {
+    for(let i = 0; i < 85; i++) {
         setTimeout(() => createButterfly(true), i * 30);
     }
     // Setelah itu, muncul tiap 3 detik biar awet indahnya
     setTimeout(() => {
-        setInterval(() => createButterfly(false), 3000);
+        setInterval(() => createButterfly(false), 1000);
     }, 2000);
 }
 </script>
